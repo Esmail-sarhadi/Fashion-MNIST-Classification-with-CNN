@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="vqq11CWNVkLVnZvjCeZReKc8-FRmgxek2SOWjr35CbY" />
+    <link rel="shortcut icon" type="image/png" href="android-chrome-512x512.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fashion MNIST Classification with CNN | Fashion-MNIST-Classification-with-CNN</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Fashion MNIST Classification with CNN" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Fashion MNIST dataset consists of 70,000 grayscale images in 10 categories, with 7,000 images per category. The images show individual articles of clothing at low resolution (28 by 28 pixels). The goal of this project is to create a neural network model that can accurately classify these images into their respective categories." />
+<meta property="og:description" content="The Fashion MNIST dataset consists of 70,000 grayscale images in 10 categories, with 7,000 images per category. The images show individual articles of clothing at low resolution (28 by 28 pixels). The goal of this project is to create a neural network model that can accurately classify these images into their respective categories." />
+<link rel="canonical" href="https://esmail-sarhadi.github.io/Fashion-MNIST-Classification-with-CNN/" />
+<meta property="og:url" content="https://esmail-sarhadi.github.io/Fashion-MNIST-Classification-with-CNN/" />
+<meta property="og:site_name" content="Fashion-MNIST-Classification-with-CNN" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fashion MNIST Classification with CNN" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"The Fashion MNIST dataset consists of 70,000 grayscale images in 10 categories, with 7,000 images per category. The images show individual articles of clothing at low resolution (28 by 28 pixels). The goal of this project is to create a neural network model that can accurately classify these images into their respective categories.","headline":"Fashion MNIST Classification with CNN","name":"Fashion-MNIST-Classification-with-CNN","url":"https://esmail-sarhadi.github.io/Fashion-MNIST-Classification-with-CNN/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Fashion-MNIST-Classification-with-CNN/assets/css/style.css?v=8464af9050e4b608c508d05ddae3818e2b87b2e7">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Fashion-MNIST-Classification-with-CNN/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://esmail-sarhadi.github.io/Fashion-MNIST-Classification-with-CNN/">Fashion-MNIST-Classification-with-CNN</a></h1>
+      
+
+      
+<h1 id="fashion-mnist-classification-with-cnn">Fashion MNIST Classification with CNN</h1>
+
+<p>This project implements a Convolutional Neural Network (CNN) to classify images from the Fashion MNIST dataset.</p>
+
+<h2 id="project-description">Project Description</h2>
+
+<p>The Fashion MNIST dataset consists of 70,000 grayscale images in 10 categories, with 7,000 images per category. The images show individual articles of clothing at low resolution (28 by 28 pixels). The goal of this project is to create a neural network model that can accurately classify these images into their respective categories.</p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>The Fashion MNIST dataset includes the following categories:</p>
+
+<ol>
+  <li>T-shirt/top</li>
+  <li>Trouser</li>
+  <li>Pullover</li>
+  <li>Dress</li>
+  <li>Coat</li>
+  <li>Sandal</li>
+  <li>Shirt</li>
+  <li>Sneaker</li>
+  <li>Bag</li>
+  <li>Ankle boot</li>
+</ol>
+
+<p>You can download the dataset using Keras:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">fashion_mnist</span>
+
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">fashion_mnist</span><span class="p">.</span><span class="n">load_data</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="model-architecture">Model Architecture</h2>
+
+<p>The model architecture consists of the following layers:</p>
+
+<ol>
+  <li>Conv2D layer with 64 filters, kernel size of 5x5, ReLU activation, and same padding</li>
+  <li>MaxPooling2D layer with pool size of 2x2</li>
+  <li>Conv2D layer with 128 filters, kernel size of 5x5, ReLU activation, and same padding</li>
+  <li>MaxPooling2D layer with pool size of 2x2</li>
+  <li>Conv2D layer with 256 filters, kernel size of 5x5, ReLU activation, and same padding</li>
+  <li>MaxPooling2D layer with pool size of 2x2</li>
+  <li>Flatten layer</li>
+  <li>Dense layer with 512 units and ReLU activation</li>
+  <li>Dense layer with 10 units and softmax activation</li>
+</ol>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>keras</li>
+  <li>numpy</li>
+  <li>matplotlib</li>
+</ul>
+
+<p>You can install the required packages using pip:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>keras numpy matplotlib
+</code></pre></div></div>
+
+<h2 id="how-to-run">How to Run</h2>
+
+<ol>
+  <li><strong>Load and preprocess the data:</strong></li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="c1"># Load data
+</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">fashion_mnist</span><span class="p">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalize data
+</span><span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Reshape data
+</span><span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># One-hot encode labels
+</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Define and compile the model:</strong></li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Dense</span>
+
+<span class="c1"># Define model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Compile model
+</span><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Train the model on the training data:</strong></li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Save the model weights:</strong></li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">'model.h5'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Plot and visualize the training results:</strong></li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Plot training &amp; validation accuracy values
+</span><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">history</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">history</span><span class="p">[</span><span class="s">'val_accuracy'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Model accuracy'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Epoch'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Accuracy'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'Train'</span><span class="p">,</span> <span class="s">'Validation'</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s">'upper left'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="training-and-evaluation">Training and Evaluation</h2>
+
+<p>The model is trained for 10 epochs with a validation split of 0.1. The training and validation accuracy is plotted to visualize the performance of the model over the epochs.</p>
+
+<h2 id="results">Results</h2>
+
+<p>The training and validation accuracy are displayed in a plot, showing the model’s performance over the epochs. The model’s weights are saved to a file named <code class="language-plaintext highlighter-rouge">model.h5</code>.</p>
+
+<h2 id="profile">Profile</h2>
+
+<p>Check out my GitHub profile: <a href="https://github.com/Esmail-sarhadi" target="_blank">Esmail Sarhadi</a></p>
+
+<h2 id="project-link">Project Link</h2>
+
+<p>View this project on GitHub: <a href="https://github.com/Esmail-sarhadi/Fashion-MNIST-Classification-with-CNN" target="_blank">Fashion-MNIST-Classification-with-CNN</a></p>
+
+<h2 id="donation">Donation</h2>
+
+<p>If you find this project helpful, consider making a donation:</p>
+<p><a href="https://nowpayments.io/donation?api_key=REWCYVC-A1AMFK3-QNRS663-PKJSBD2&source=lk_donation&medium=referral" target="_blank">
+     <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
+</a></p>
+<h2 id="license">License</h2>
+
+<p>This project is licensed under the MIT License. See the <a href="/Fashion-MNIST-Classification-with-CNN/LICENSE">LICENSE</a> file for more details.</p>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/Esmail-sarhadi/Fashion-MNIST-Classification-with-CNN/edit/main/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
