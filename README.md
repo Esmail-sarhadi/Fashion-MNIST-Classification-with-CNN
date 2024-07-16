@@ -141,3 +141,9 @@ The training and validation accuracy are displayed in a plot, showing the model'
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+<h2 id="donation">Donation</h2>
+
+<p>If you find this project helpful, consider making a donation:</p>
+<p><a href="https://nowpayments.io/donation?api_key=REWCYVC-A1AMFK3-QNRS663-PKJSBD2&source=lk_donation&medium=referral" target="_blank">
+     <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
+</a></p>
